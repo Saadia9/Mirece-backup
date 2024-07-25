@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiRece</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="./data.js"></script>
+    <script src="./logic.js"></script>
+    
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/logo.png" class="logo" alt="Logo" href="http://127.0.0.1:5500/index.html">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link" href="#favorites">Favorites</a>
+                        </li>
+                        <li class="nav-item ms-3 me-3">
+                            <a class="nav-link" href="./about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container mt-4">
+        <div class="hero text-center align-items-center">
+
+            <h2 class="mt-3 pt-5">Your recipes on demand</h2>
+            <form class="d-flex justify-content-center mt-3" id="search-form">
+                <input type="text" class="form-control w-50" placeholder="Search" name="query" id="search-input">
+                <button type="submit" class="btn btn-primary ms-2">Go!</button>
+                <!-- Changes to form:
+
+Your Original Code: No id attribute is given to the form.
+Updated Code: Added id="search-form" to the form.
+Explanation: Adding an id attribute to the form makes it easier to select and manipulate the form element in JavaScript. This is especially useful if you have multiple forms on a page 
+and need to target a specific one.
+
+Input ID Attribute:
+
+Original Code: No id attribute is given to the input field.
+Updated Code: Added id="search-input" to the input field.
+Explanation: Similar to the form, adding an id to the input field makes it easier to select and manipulate this specific element in JavaScript. This is useful for extracting the user's search query.
+
+Action Attribute:
+
+Original Code: action="/search"
+Updated Code: Removed the action attribute.
+Explanation: By removing the action attribute, we prevent the form from submitting and causing a page refresh or navigation. Instead, we can handle the form submission entirely with JavaScript, 
+which gives us more control over what happens when the user submits the form (e.g., displaying search results dynamically without a page refresh).
+
+Method Attribute:
+
+Original Code: method="get"
+Updated Code: Removed the method attribute.
+Explanation: Similar to the action attribute, by removing the method attribute, we ensure that the form submission is handled with JavaScript rather than sending a GET request to the server. 
+This is part of the same goal to handle form submissions dynamically. -->
+            </form>
+        </div>
+
+
+        <main class="mt-5">
+            <section id="favorites">
+                <h2 class="text-center">Popular Recipes</h2>
+                <section class="row">
+                    <!-- Button trigger modal -->
+                    <div class="col-4">
+                        <div class="card" style="width: 100%;">
+                            <img src="https://munchingwithmariyah.com/wp-content/uploads/2020/09/IMG_9225-1238x1536.jpg"
+                                class="card-img-top" alt="...">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Vegan Roasted Tomato Soup</h5>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modal-1">
+                                    More Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+
+                        <div class="card" style="width: 100%;">
+                            <img src="https://www.saltandlavender.com/wp-content/uploads/2019/04/easy-pasta-arrabiata-recipe-3-768x1152.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Easy Pasta Arrabiata</h5>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modal-2">
+                                    More Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card" style="width: 100%;">
+                            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/09/hummus-recip-e.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Hummus</h5>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modal-3">
+                                    More Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <!-- Modal -->
+
+                <div class="modal fade" id="modal-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Vegan Roasted Tomato Soup</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h2>Ingredients:</h2>
+                                <li>Roma Tomatoes (2)</li>
+                                <li>Onion (1)</li>
+                                <li>Rose Harissa (1 Tsp)</li>
+                                <li>Carrot (1)</li>
+                                <li>Garlic (5 Cloves)</li>
+                                <li>Water (3 Cups)</li>
+                                <li>Cashews (1/3 Cups) </li>
+                                <li>Chopped Basil (1/4 Cups)r</li>
+                                <li>Tomato Paste (1 Tbs)</li>
+                                <li>salt</li>
+                                <li>Pepper</li>
+                                <p>
+                                <h2>Instructions:</h2>
+                                Start by preheating the oven to 450°F and line a baking tray with parchment paper. ',
+                                'Score the top
+                                of the tomatoes across vertically and then across horizontally. This will ensure the
+                                tomatoes don’t
+                                burst while they’re cooking. Add these onto the baking tray. ', 'Next, chop the carrots
+                                and onion into
+                                large chunks and add onto the baking tray along with the garlic cloves. Drizzle over the
+                                olive oil and
+                                bake the veggies in the oven for 45 minutes. The tomatoes should look shriveled, and the
+                                onion should
+                                have started to burn around the edges — don`t worry it’ll make the soup taste extra
+                                yummy!', 'Once the
+                                veggies are done, let them cool down for 10 minutes. Once cool, peel off the skin of the
+                                tomatoes —
+                                it’s easier to peel off the skin when the tomatoes are cooler. ', 'Then, add all of the
+                                veggies into a
+                                blender, along with the water, cashews, basil, salt and pepper.', 'Blend on low, slowly
+                                ramping up the
+                                speed to high. Continue to blend on high for 3-4 minutes until the soup is super creamy
+                                and thick.
+                                Taste and adjust for salt and pepper.', 'Pour the soup into a pot and heat until it’s
+                                nice and warm. I
+                                love serving this soup with a drizzle of olive and basil on top with a slice of Ezekiel
+                                or sourdough
+                                bread.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Close</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal -->
+
+                <div class="modal fade" id="modal-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Easy Pasta Arrabiata</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Ingredients:</h3>
+                                <li>Extra-Virgin Olive oil (3 Tbs) </li>
+                                <li>Garlic (3 cloves)</li>
+                                <li>Red Pepper Flakes(1 Tsp)</li>
+                                <li>Finely Chopped tomatoes (2 cans)</li>
+                                <li>Brown Sugar (1 Tsp)</li>
+                                <li>Salt</li>
+                                <li>Pepper </li>
+                                <li>Parmesan Cheese</li>
+                                <li>Uncooked Penne (8 oz)</li>                           
+                                <p>
+                                <h3>Instructions:</h3>
+                                Add the oil to a medium-sized pot over medium-high heat.', "Once the oil is hot, add the garlic and let it cook for a minute or so (watch it closely and don't let it brown).", "Stir in the red pepper flakes, tomatoes, and sugar (if using, see note). Reduce the heat and let it simmer, stirring occasionally, for about 15 minutes.", 'While the sauce is simmering, boil a large, salted pot of water for your pasta. Cook it al dente according to package directions.', 'Season the sauce with salt & pepper as needed. I added a fair bit of salt. , "Drain the pasta and toss with the sauce (you can add a little pasta water too if you wish). Top with freshly grated parmesan cheese.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Close</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="modal fade" id="modal-3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Hummus</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+
+
+                            <div class="modal-body">
+                                <h3>Ingredients:</h3>
+                                <li>Chickpeas (1.5 Cup) </li>
+                                <li>Tahini (1/3 Cup)</li>
+                                <li>Extra-Virgin Olive oil (2 Tbs)</li>
+                                <li>Lemon Juice (2 Tbs)</li>
+                                <li>Garlic (2 Cloves)</li>
+                                <li>Sea Salt (1/2 Tsp) </li>
+                                <li>Water (5 Tbs)</li>
+                                <li>Paprika</li>
+                                <p>
+                                <h3>Instructions:</h3>
+                                In a high-speed blender, place the chickpeas, tahini, olive oil, lemon juice, garlic,
+                                and salt. Use
+                                the blender baton to blend until very smooth, adding water as needed to blend, and/or to
+                                reach your
+                                desired consistency.', 'Transfer to a serving plate and garnish with paprika, red pepper
+                                flakes,
+                                and/or fresh parsley. Serve with warm pita and veggies, as desired.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Close</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <footer class="bg-light mt-5 py-3">
+        <div class="container text-center">
+            <nav>
+                <a href="mailto: contact@mirece.com" class="mx-3">Contact Us</a>
+                <a href="#privacy-policy" class="mx-3">Privacy Policy</a>
+                <a href="http://127.0.0.1:5500/about.html" class="mx-3">About</a>
+            </nav>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
